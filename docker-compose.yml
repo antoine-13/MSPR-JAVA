@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  jenkins:
+    image: bitnami/jenkins
+    privileged: true
+    user: root
+    ports:
+      - 8080:8080
+      - 50000:50000
+    container_name: jenkins
+    volumes:
+      - ./jenkins_data:/var/jenkins_home
+
+  nginx:
+    image: bitnami/nginx:latest
+    container_name: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx:/etc/nginx/templates
+    environment:
+      - NGINX_HOST=gosecuri.com
+      - NGINX_PORT=80
+
+
