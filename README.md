@@ -2,4 +2,4 @@
 
 ## Projet MSPR application java
 
-plop test trigger
+plop test trigger test
