@@ -15,16 +15,10 @@ services:
       - JENKINS_PASSWORD=P@ssw0rd
     volumes:
       - ./jenkins_data:/var/jenkins_home
+    networks:
+      jenkins_net:
 
-  nginx:
-    image: bitnami/nginx:latest
-    container_name: nginx
-    ports:
-      - 80:80
-    volumes:
-      - ./nginx:/etc/nginx/templates
-    environment:
-      - NGINX_HOST=gosecuri.com
-      - NGINX_PORT=80
+networks:
+  jenkins_net:
 
 
