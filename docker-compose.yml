@@ -2,13 +2,17 @@ version: '3'
 
 services:
   jenkins:
+    container_name: jenkins
     image: bitnami/jenkins
     privileged: true
     user: root
     ports:
       - 8080:8080
       - 50000:50000
-    container_name: jenkins
+    
+    environment:
+      - JENKINS_USERNAME=gosecuri
+      - JENKINS_PASSWORD=P@ssw0rd
     volumes:
       - ./jenkins_data:/var/jenkins_home
 
